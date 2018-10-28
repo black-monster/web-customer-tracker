@@ -2,6 +2,7 @@ package com.luv2code.springdemo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.luv2code.springdemo.entity.Customer;
@@ -25,4 +26,15 @@ public class CustomerController {
 			theModel.addAttribute("customers",theCustomers);
 			return "list-customers";
 		}
+
+		@GetMapping("/showFormForAdd")
+		public String showFormForAdd(Model theModel) {
+			// create model attribute to bind form data
+			
+			Customer theCustomer = new Customer();
+			theModel.addAttribute("customer",theCustomer);
+			
+			return "customer-form";
+		}
+		
 }

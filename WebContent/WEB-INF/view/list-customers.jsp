@@ -20,6 +20,9 @@
 	
 	<div id="container">
 	<div id="context">
+	
+	<!-- put new button : Add Customer -->
+	<input type="button" value="Add Cutomer" onclick="window.location.href='showFormForAdd'";return false; class='add-button'/>
 	<!-- add output html table -->
 	
 		<table>
