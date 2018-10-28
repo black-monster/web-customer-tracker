@@ -3,6 +3,8 @@ package com.luv2code.springdemo.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import com.luv2code.springdemo.entity.Customer;
@@ -36,5 +38,15 @@ public class CustomerController {
 			
 			return "customer-form";
 		}
+		
+		@PostMapping("/saveCustomer")
+		public String saveCustomer(@ModelAttribute("customer")Customer theCustomer) {
+			
+			// save the customer using our service
+			customerService.saveCustomer(theCustomer);
+			
+			return "redirect:/customer/list";
+		}
+		
 		
 }
