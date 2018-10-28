@@ -12,7 +12,6 @@ import org.springframework.transaction.annotation.Transactional;
 import com.luv2code.springdemo.entity.Customer;
 
 @Repository
-@Transactional
 public class CustomerDAOImpl implements CustomerDAO {
 
 	//need to inject the session factory
