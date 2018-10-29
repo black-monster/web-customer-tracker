@@ -50,10 +50,12 @@ public class CustomerController {
 		}
 		
 		
+		
+		
 		@GetMapping("/showFormForUpdate")
 		public String showFormForUpdate(@RequestParam("customerId")int theId,Model theModel) {
 			
-			System.out.println(1);
+//			System.out.println(1);
 			// get the customer from our service
 			Customer theCustomer = customerService.getCustomer(theId);
 			// set customer as model attribute to prepopulate the form
@@ -63,4 +65,10 @@ public class CustomerController {
 			return "customer-form";
 		}
 		
+		@GetMapping("/delete")
+		public String deleteCustomer(@RequestParam("customerId")int theId) {
+			// delete this customer
+			customerService.deleteCustomer(theId);
+			return "redirect:/customer/list";
+		}
 }
